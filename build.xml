@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<project name="Mate" basedir="." default="compile">
+	<property name="src"   value="src"/>
+	<property name="classes" value="classes"/>
+	<property name="lib"   value="lib"/>
+
+	<path id="master-classpath">
+		<fileset dir="${lib}">
+			<include name="morfologik-fsa-builders-2.1.3-SNAPSHOT.jar"/>
+			<include name="morfologik-fsa-2.1.3-SNAPSHOT.jar"/>
+			<include name="morfologik-stemming-2.1.3-SNAPSHOT.jar"/>
+			<include name="morfologik-polish-2.1.3-SNAPSHOT.jar"/>
+			<include name="morfologik-speller-2.1.3-SNAPSHOT.jar"/>
+			<include name="morfologik-tools-2.1.3-SNAPSHOT.jar"/>
+		</fileset>
+		<pathelement location="./classes"/>
+	</path>
+
+	<target name="compile">
+		<delete includeEmptyDirs="true" dir="classes"/>
+		<mkdir dir="${classes}"/>
+		<javac srcdir="${src}" destdir="${classes}" includeantruntime="false">
+			<classpath refid="master-classpath"/>
+		</javac>
+	</target>
+
+	<target name="run">
+		<java classname="FirstTest" fork="true">
+			<classpath refid="master-classpath"/>
+		</java>
+	</target>
+
+	<target name="clean">
+		<delete includeEmptyDirs="true" dir="classes"/>
+	</target>
+</project>

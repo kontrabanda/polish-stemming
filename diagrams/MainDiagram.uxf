@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>13</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>429</y>
+      <w>364</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>StemmingConroller &lt;&lt;final&gt;&gt;
+--
+- StemmingConroller() 
++ getStemmedString(String) &lt;&lt;static&gt;&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>923</x>
+      <y>429</y>
+      <w>325</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>SpellerConroller &lt;&lt;final&gt;&gt;
+--
+- SpellerConroller() 
++ getSpelledString(String) &lt;&lt;static&gt;&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>715</x>
+      <y>247</y>
+      <w>325</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>MainConroller
+--
++ MainController()
++ performStemming();
++ main(String[]) &lt;&lt;static&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>676</x>
+      <y>351</y>
+      <w>156</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;60.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>351</y>
+      <w>169</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>110.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

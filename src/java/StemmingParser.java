@@ -3,14 +3,18 @@ import java.util.Locale;
 import morfologik.stemming.WordData;
 import morfologik.stemming.polish.*;
 
-public class StemmingController {
+public class StemmingParser extends Parser {
 	private PolishStemmer stemmer;
 
-	public StemmingController() {
+	public StemmingParser() {
 		stemmer = new PolishStemmer();
 	}
 
-	public String getStemmedString(String in) {
+	public String parse(String input) {
+		return getStemmedString(input);
+	}
+
+	private String getStemmedString(String in) {
 		String result = "";
 
 		for (String t : in.toLowerCase(new Locale("pl")).split("[\\s\\.\\,]+")) {
@@ -22,4 +26,4 @@ public class StemmingController {
 
 		return result;
 	}
-};
+}

@@ -1,21 +1,27 @@
 import java.io.*;
 
 public class MainController {
-	FileReader fileReader;
-	FileWriter fileWriter;
-	BufferedReader bufferedReader;
-	BufferedWriter bufferedWriter;
+	private final String inputPath = "./src/resource/";
+	private final String outputPath = "./target/output/";
 
-	public MainController() {
-		openStreams();
+	private FileReader fileReader;
+	private FileWriter fileWriter;
+	private BufferedReader bufferedReader;
+	private BufferedWriter bufferedWriter;
+	private StemmingController stemmingController;
+
+	public MainController(String fileName) {
+		stemmingController = new StemmingController();
+
+		openStreams(fileName);
 	}
 
-	private void openStreams() {
+	private void openStreams(String fileName) {
 		try {
-			fileReader = new FileReader("./src/resource/text.txt");
+			fileReader = new FileReader(inputPath + fileName);
 			bufferedReader = new BufferedReader(fileReader);
 
-			fileWriter = new FileWriter("./target/output/output.txt", true);
+			fileWriter = new FileWriter(outputPath + "output-" +fileName, true);
 			bufferedWriter = new BufferedWriter(fileWriter);
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -37,8 +43,9 @@ public class MainController {
 	public void performStemming() {
 		try {
 			for(String line; (line = bufferedReader.readLine()) != null;) {
-				System.out.println(line);
-				bufferedWriter.write(line);
+				String output = stemmingController.getStemmedString(line);
+
+				bufferedWriter.write(output);
 				bufferedWriter.newLine();
 			}
 		} catch(IOException e) {
@@ -47,8 +54,16 @@ public class MainController {
 	}
 
 	public static void main(String[] args) {
-		MainController controller = new MainController();
+		MainController controller = new MainController(args[0]);
+	
+		long startTime = System.currentTimeMillis();
+
 		controller.performStemming();
+		
+		long endTime = System.currentTimeMillis();
+
+		System.out.println();
+		System.out.println("That took " + (endTime - startTime) + " milliseconds");
 		controller.closeStreams();
 	}
 };

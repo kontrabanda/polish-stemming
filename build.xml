@@ -37,6 +37,7 @@
 	<target name="run">
 		<java classname="MainController" fork="true">
 			<classpath refid="master-classpath"/>
+			<arg value="hasz-txt.csv"/>
 		</java>
 	</target>
 

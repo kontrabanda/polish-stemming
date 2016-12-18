@@ -1,12 +1,14 @@
 import java.util.*;
 
 public class ActionController {
+	private TimeLogger timeLogger;
 	private FileControllerListGetter fileListGetter;
 	private ArrayList<FileController> csvFiles;
 	private ArrayList<FileController> txtFiles;
 
 	public ActionController(InputParams params) {
 		fileListGetter = new FileControllerListGetter(params);
+		timeLogger = new TimeLogger();
 
 		csvFiles = fileListGetter.getFileList(".csv");
 		txtFiles = fileListGetter.getFileList(".txt");
@@ -19,13 +21,15 @@ public class ActionController {
 
 	private void performActionForEachInList(ArrayList<FileController> list) {
 		for(FileController fileControler: list) {
-			long startTime = System.currentTimeMillis();
+			timeLogger.start();
 
 			fileControler.performParse();
 
-			long endTime = System.currentTimeMillis();
+			timeLogger.end();
+
+			System.out.println("Parse " + fileControler.getFileName() + " took:");
+			timeLogger.printFullTime();
 			System.out.println();
-			System.out.println(fileControler.getFileName() + ": took " + (endTime - startTime) + " milliseconds");
 		}	
 	}
 }

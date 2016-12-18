@@ -15,7 +15,7 @@ public class TimeLogger {
 	}
 
 	public double getSeconds() {
-		return getMilliseconds()/100;
+		return getMilliseconds()/1000;
 	}
 
 	public double getMinutes() {

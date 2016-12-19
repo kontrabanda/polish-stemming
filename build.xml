@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="Mate" basedir="." default="compile">
+<project name="polish-stemming" basedir="." default="compile">
 	
 	<property name="src" value="src"/>
 	<property name="java" value="src/java"/>
@@ -37,14 +37,14 @@
 	<target name="stemming">
 		<java classname="MainController" fork="true">
 			<classpath refid="master-classpath"/>
-			<arg value="stemming"/>
+			<arg value="stemmer"/>
 		</java>
 	</target>
 
 	<target name="spelling">
 		<java classname="MainController" fork="true">
 			<classpath refid="master-classpath"/>
-			<arg value="spelling"/>
+			<arg value="speller"/>
 		</java>
 	</target>
 

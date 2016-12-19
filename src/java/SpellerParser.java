@@ -42,11 +42,7 @@ public class SpellerParser extends Parser {
 		}
 
 		List<String> reps = speller.findReplacements(word);
-
-		for(String temp: reps) {
-			System.out.println(temp);
-		}
-
+		
 		if(reps.size() == 0) {
 			return word;
 		}

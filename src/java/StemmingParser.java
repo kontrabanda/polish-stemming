@@ -25,7 +25,7 @@ public class StemmingParser extends Parser {
 				result += t;
 			} else {
 				for (WordData wd : wodrDataList) {
-					result += (wd.getStem() == null ? "<<null>>" : wd.getStem()) + "/";
+					result += (wd.getStem() == null ? "<<null>>" : wd.toString()) + "/";
 				}
 			}
 

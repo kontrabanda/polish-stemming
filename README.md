@@ -10,7 +10,8 @@ Wykorzystywany jest do tego pakiet morfologik:
 Do zbudowania projektu niezbędne jest narzędzie ant.
 Z wykorzystaniem narzędzia można wykonać następujące komendy:
 * ant compile (bądź sam ant) - kompilacja i zbudowanie folderu target,
-* ant run - uruchomienie projektu,
+* ant stemming - uruchomienie stemmingu,
+* ant spelling - uruchomienie poprawy składni (w fazie przygotowania),
 * ant clean - czyszczenie projektu.
 
 ## Opis działania

@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.net.URL;
 import java.io.*;
 import java.util.*;
@@ -26,12 +27,30 @@ public class SpellerParser extends Parser {
 	}
 
 	public String getSpelledString(String in) {
-		List<String> reps = speller.findReplacements("tchurz");
+		String result = "";
 
-		for(String word: reps) {
-			System.out.println(word);
+		for (String t : in.toLowerCase(new Locale("pl")).split("[\\s\\.\\,]+")) {
+			result += getSpelledWord(t) + " ";
 		}
 
-		return in;
+		return result;
+	}
+
+	private String getSpelledWord(String word) {
+		if(speller.isInDictionary(word)) {
+			return word;
+		}
+
+		List<String> reps = speller.findReplacements(word);
+
+		for(String temp: reps) {
+			System.out.println(temp);
+		}
+
+		if(reps.size() == 0) {
+			return word;
+		}
+
+		return reps.get(0);
 	}
 }

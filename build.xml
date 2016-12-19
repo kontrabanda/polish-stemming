@@ -34,10 +34,17 @@
 		</javac>
 	</target>
 
-	<target name="run">
+	<target name="stemming">
 		<java classname="MainController" fork="true">
 			<classpath refid="master-classpath"/>
-			<arg value="hasz-txt.csv"/>
+			<arg value="stemming"/>
+		</java>
+	</target>
+
+	<target name="spelling">
+		<java classname="MainController" fork="true">
+			<classpath refid="master-classpath"/>
+			<arg value="spelling"/>
 		</java>
 	</target>
 

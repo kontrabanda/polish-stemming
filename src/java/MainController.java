@@ -9,10 +9,10 @@ public class MainController {
 	public static void main(String[] args) {
 		InputParams params = new InputParams();
 
+		params.actionType = args[0];
 		params.outputPath = "./target/output/";
 		params.inputPath = "./src/resource/";
-		params.actionType = "speller";
-
+		
 		MainController controller = new MainController(params);
 	}
 };

@@ -11,7 +11,7 @@ public class MainController {
 
 		params.outputPath = "./target/output/";
 		params.inputPath = "./src/resource/";
-		params.actionType = "stemming";
+		params.actionType = "speller";
 
 		MainController controller = new MainController(params);
 	}
